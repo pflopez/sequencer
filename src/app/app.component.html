@@ -1,4 +1,6 @@
-Debugger:
-<button (click)="play()">run</button>
-<button (click)="stop()">stop</button>
-<div>{{ activeStep$ | async | json}}</div>
+<div>
+  <button (click)="play()">run</button>
+  <button (click)="stop()">stop</button>
+  <label for="bpm">BPM:</label><input #bpm name="bpm" id="bpm" [value]="bpm$ |async" (keyup)="changeBpm(bpm.value)">
+</div>
+<app-sequencer [instruments]="instruments"></app-sequencer>

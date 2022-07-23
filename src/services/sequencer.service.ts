@@ -25,7 +25,6 @@ export class SequencerService {
   public activeStep$ = this.activeStep.asObservable();
   public subdivision$ = this.subdivision.asObservable();
 
-
   private runner = this.getRunner();
 
 
@@ -52,6 +51,8 @@ export class SequencerService {
   updateBpm(bpm: number) {
     this._bpm = bpm;
     this.bpm.next(this._bpm);
+    this.runner.unsubscribe();
+    this.run();
   }
 
 
@@ -66,12 +67,12 @@ export class SequencerService {
       distinctUntilChanged(),
       switchMap(p => timer(0, this.intervalFromBpm()))
     ).subscribe(play => {
-      this.setActiveStep((this._activeStep + 1) % 16)
+      this.setActiveStep((this._activeStep) % 16 + 1)
     });
   }
 
   private intervalFromBpm(){
-    return (60 / this._bpm) * 1000;
+    return (60 / this._bpm) / this._subdivision * 1000;
   }
 
 }
