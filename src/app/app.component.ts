@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import {SequencerService} from "../services/sequencer.service";
 
 @Component({
   selector: 'app-root',
@@ -7,4 +8,18 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'sequencer';
+
+  play(){
+    this.sequencer.run();
+  }
+
+  stop(){
+    this.sequencer.stop();
+  }
+
+  activeStep$ = this.sequencer.activeStep$;
+
+  constructor(private sequencer: SequencerService) {
+  }
+
 }
