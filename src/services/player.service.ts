@@ -6,7 +6,7 @@ import {SequencerService} from "./sequencer.service";
 })
 export class PlayerService {
 
-  player$ = this.sequencer.activeStep$.subscribe(activeStep => this.play(activeStep));
+  player$ = this.sequencer.currentStep$.subscribe(activeStep => this.play(activeStep));
 
   constructor(private sequencer: SequencerService) { }
 

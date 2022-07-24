@@ -3,4 +3,5 @@
   <button (click)="stop()">stop</button>
   <label for="bpm">BPM:</label><input #bpm name="bpm" id="bpm" [value]="bpm$ |async" (keyup)="changeBpm(bpm.value)">
 </div>
+<div>{{activeStep$ | async }}</div>
 <app-sequencer [instruments]="instruments"></app-sequencer>

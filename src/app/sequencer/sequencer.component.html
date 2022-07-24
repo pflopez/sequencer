@@ -1,5 +1,7 @@
 <div *ngFor="let instrument of instruments" class="instrument-line">
   <div class="instrument-name">{{instrument.name}}</div>
-  <div *ngFor="let step of instrument.steps; index as i" class="step" [ngClass]="{on: step.on, active: (activeStep$ | async)  === i + 1}"></div>
+  <div *ngFor="let step of instrument.steps; index as i" class="step" [ngClass]="{on: step.on, active: (instrument.activeStep$ | async)  === i + 1}"></div>
+  <div>{{instrument.activeStep$ | async}}</div>
 </div>
+
 

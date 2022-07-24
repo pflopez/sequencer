@@ -1,6 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {InstrumentLine} from "../../models/step";
 import {SequencerService} from "../../services/sequencer.service";
+import {InstrumentLine} from "../../models/instrument-line";
 
 @Component({
   selector: 'app-sequencer',
@@ -11,7 +11,7 @@ export class SequencerComponent implements OnInit {
 
   @Input() instruments: InstrumentLine[] = [];
 
-  activeStep$ = this.sequencer.activeStep$;
+  activeStep$ = this.sequencer.currentStep$;
 
   constructor(private sequencer: SequencerService) { }
 
