@@ -1,8 +1,9 @@
-:host{
+:host {
   display: flex;
   border: 1px solid black;
   flex-direction: column;
   margin: 0;
+  background-color: var(--sequencer-bg);
 }
 
 .instrument-line {
@@ -16,8 +17,8 @@
 }
 
 .step {
-  width: 20px;
-  height: 20px;
+  width: var(--step-size);
+  height: var(--step-size);
   padding: 10px;
   align-items: center;
   text-align: center;

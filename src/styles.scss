@@ -4,4 +4,22 @@
   --step-color: gray;
   --step-color--active: lightcoral;
   --step-color--on : red;
+  --step-size: 30px;
+  --main-bg-color: white;
+  --font-color: black;
+
+  --sequencer-bg: #d0d0d0;
+}
+
+/* Set core body defaults */
+body {
+  min-height: 100vh;
+  scroll-behavior: smooth;
+  text-rendering: optimizeSpeed;
+  line-height: 1.5;
+  font-size: var(--font-size);
+  background-color: var(--main-bg-color);
+  color: var(--font-color);
+  font-family: sans-serif;
+  display: flex;
 }

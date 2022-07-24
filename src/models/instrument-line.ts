@@ -6,7 +6,8 @@ export class InstrumentLine {
   sample: string = '';
   volume: number = 1;
   steps: Step[] = [];
-  activeStep$: Observable<number>;
+  activeStep$: Observable<number> = new Observable<number>();
+
 
   constructor(name: string, pattern: number[], currentStep$: Observable<number>, steps: number = 16) {
     this.name = name;
@@ -16,6 +17,7 @@ export class InstrumentLine {
       this.steps.push(new Step(on))
     }
     // subscribe and set active step, based on the sequencer current step number
+    // starting at 1, 0 is off.
     this.activeStep$ = currentStep$.pipe(
       map(stepNumber => {
         const mod = stepNumber % this.steps.length;
@@ -23,12 +25,16 @@ export class InstrumentLine {
           return 0;
         }
         if (mod === 0) {
-          console.log(this.steps.length)
           return this.steps.length;
         }
         return mod;
       }),
     );
-    this.activeStep$.subscribe();
+
+    this.activeStep$.subscribe(step => {
+      if (step !== 0) {
+        this.steps[step - 1].play();
+      }
+    });
   }
 }

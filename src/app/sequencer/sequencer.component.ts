@@ -1,5 +1,5 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {SequencerService} from "../../services/sequencer.service";
+import {ClockService} from "../../services/clock.service";
 import {InstrumentLine} from "../../models/instrument-line";
 
 @Component({
@@ -13,7 +13,7 @@ export class SequencerComponent implements OnInit {
 
   activeStep$ = this.sequencer.currentStep$;
 
-  constructor(private sequencer: SequencerService) { }
+  constructor(private sequencer: ClockService) { }
 
   ngOnInit(): void {
   }

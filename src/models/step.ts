@@ -5,6 +5,12 @@ export class Step {
   constructor(on: boolean) {
     this.on = on;
   }
+
+  play(){
+    if(this.on){
+     console.log('play');
+    }
+  }
 }
 
 

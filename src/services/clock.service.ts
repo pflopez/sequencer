@@ -7,7 +7,7 @@ export type SequencerSubdivision = 2 | 4 | 8 | 16;
 @Injectable({
   providedIn: 'root'
 })
-export class SequencerService {
+export class ClockService {
   private _playing: boolean = false;
   private _steps: number = 16;
   private _bpm: number = 60;
@@ -54,6 +54,15 @@ export class SequencerService {
     this.bpm.next(this._bpm);
     if(this._playing){
       this.runner.unsubscribe();
+      this.run();
+    }
+  }
+
+  updateSubdivision(division: SequencerSubdivision){
+    this._subdivision = division;
+    this.subdivision.next(this._subdivision);
+    if(this._playing){
+      this.stop();
       this.run();
     }
   }
