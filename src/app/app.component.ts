@@ -18,10 +18,13 @@ export class AppComponent {
     new InstrumentLine('ride', [3, 0, 0, 0, 1, 0, 1, 0], this.clockService.currentStep$),
   ]
 
+  velocity = 1 ;
 
 
   constructor(private clockService: ClockService) {
   }
-
+  updateVelocity(velocity: number){
+    this.velocity = velocity;
+  }
 
 }

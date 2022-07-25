@@ -10,4 +10,9 @@
     <option value="8">1/8</option>
     <option value="16">1/16</option>
   </select>
-
+  <label for="velocity">VELOCITY:</label>
+  <select id="velocity" [value]="1" #velocity (change)="changeVelocity(velocity.value)">
+    <option value="1">HIGH</option>
+    <option value="2">MED</option>
+    <option value="3">LOW</option>
+  </select>

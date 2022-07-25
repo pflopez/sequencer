@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 import {ClockService, SequencerSubdivision} from "../../services/clock.service";
 
 @Component({
@@ -10,6 +10,8 @@ export class ControlsComponent implements OnInit {
 
   bpm$ = this.clockService.bpm$;
   duration$ = this.clockService.subdivision$;
+
+  @Output() updateVelocity = new EventEmitter<number>();
 
   constructor(private clockService: ClockService) { }
 
@@ -31,5 +33,9 @@ export class ControlsComponent implements OnInit {
 
   changeDuration(duration: string){
     this.clockService.updateSubdivision(duration as unknown as SequencerSubdivision)
+  }
+
+  changeVelocity(velocity: string){
+    this.updateVelocity.emit(Number(velocity));
   }
 }

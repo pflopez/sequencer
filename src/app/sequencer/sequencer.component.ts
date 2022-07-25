@@ -12,6 +12,7 @@ import {Step} from "../../models/step";
 export class SequencerComponent implements OnInit {
 
   @Input() instruments: InstrumentLine[] = [];
+  @Input() velocity = 1;
 
   activeStep$ = this.sequencer.currentStep$;
 
@@ -20,6 +21,7 @@ export class SequencerComponent implements OnInit {
   numberSteps = new Array(32).fill(1);
 
   clickStepTarget: any;
+  adding = false;
 
   // show or hide numberSteps selector
 
@@ -30,13 +32,19 @@ export class SequencerComponent implements OnInit {
 
   clickStep(event: MouseEvent, step: Step){
     this.clickStepTarget = (event.target as HTMLElement).parentElement
-    step.on = !step.on;
+
+    if(!step.on || step.velocity == this.velocity){
+      step.on = !step.on;
+    }
+    step.velocity = this.velocity;
+    this.adding = step.on;
   }
 
   hoverStep(event: MouseEvent, step: Step){
     const fromSameTarget = event.relatedTarget === this.clickStepTarget;
     if(event.buttons && fromSameTarget){
-      step.on = !step.on;
+      step.velocity = this.velocity;
+      step.on = this.adding;
     }
   }
 
