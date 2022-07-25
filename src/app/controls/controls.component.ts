@@ -1,5 +1,6 @@
 import {Component, EventEmitter, OnInit, Output} from '@angular/core';
-import {ClockService, SequencerSubdivision} from "../../services/clock.service";
+import {ClockService} from "../../services/clock.service";
+import {SequencerResolution, SequencerResolutions} from "../../models/sequencer";
 
 @Component({
   selector: 'app-controls',
@@ -9,11 +10,17 @@ import {ClockService, SequencerSubdivision} from "../../services/clock.service";
 export class ControlsComponent implements OnInit {
 
   bpm$ = this.clockService.bpm$;
-  duration$ = this.clockService.subdivision$;
+  resolution$ = this.clockService.resolution$;
+
+  resolutions = {
+    keys: Object.keys(SequencerResolutions) ,
+    values: Object.values(SequencerResolutions)
+  };
 
   @Output() updateVelocity = new EventEmitter<number>();
 
-  constructor(private clockService: ClockService) { }
+  constructor(private clockService: ClockService) {
+  }
 
   ngOnInit(): void {
   }
@@ -27,15 +34,14 @@ export class ControlsComponent implements OnInit {
   }
 
   changeBpm(bpm: string) {
-    const num = Number(bpm);
-    this.clockService.updateBpm(num);
+    this.clockService.updateBpm(Number(bpm));
   }
 
-  changeDuration(duration: string){
-    this.clockService.updateSubdivision(duration as unknown as SequencerSubdivision)
+  changeDuration(resolution: string) {
+    this.clockService.updateSubdivision(resolution as unknown as SequencerResolution)
   }
 
-  changeVelocity(velocity: string){
+  changeVelocity(velocity: string) {
     this.updateVelocity.emit(Number(velocity));
   }
 }

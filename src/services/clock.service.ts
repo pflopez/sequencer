@@ -1,30 +1,28 @@
 import {Injectable} from '@angular/core';
 import {BehaviorSubject, distinctUntilChanged, filter, switchMap, timer} from "rxjs";
 import {intervalFromBpm} from "./music.utility";
+import {SequencerResolution} from "../models/sequencer";
 
-export type SequencerSubdivision = 2 | 4 | 8 | 16;
+
 
 @Injectable({
   providedIn: 'root'
 })
 export class ClockService {
   private _playing: boolean = false;
-  private _steps: number = 16;
-  private _bpm: number = 60;
+  private _bpm: number = 120;
   private _currentStep: number = 0;
-  private _subdivision: SequencerSubdivision = 16;
+  private _resolution: SequencerResolution = 16;
 
   private playing = new BehaviorSubject(this._playing);
-  private steps = new BehaviorSubject(this._steps);
   private bpm = new BehaviorSubject(this._bpm);
   private currentStep = new BehaviorSubject(this._currentStep);
-  private subdivision = new BehaviorSubject(this._subdivision);
+  private resolution = new BehaviorSubject(this._resolution);
 
   public playing$ = this.playing.asObservable();
-  public steps$ = this.steps.asObservable();
   public bpm$ = this.bpm.asObservable();
   public currentStep$ = this.currentStep.asObservable();
-  public subdivision$ = this.subdivision.asObservable();
+  public resolution$ = this.resolution.asObservable();
 
   private runner = this.getRunner();
 
@@ -58,9 +56,9 @@ export class ClockService {
     }
   }
 
-  updateSubdivision(division: SequencerSubdivision){
-    this._subdivision = division;
-    this.subdivision.next(this._subdivision);
+  updateSubdivision(division: SequencerResolution){
+    this._resolution = division;
+    this.resolution.next(this._resolution);
     if(this._playing){
       this.stop();
       this.run();
@@ -77,7 +75,7 @@ export class ClockService {
     return this.playing$.pipe(
       filter(play => play),
       distinctUntilChanged(),
-      switchMap(p => timer(0, intervalFromBpm(this._bpm, this._subdivision)))
+      switchMap(p => timer(0, intervalFromBpm(this._bpm, this._resolution)))
     ).subscribe(play => {
       this.setActiveStep(this._currentStep + 1)
     });

@@ -1,6 +1,6 @@
 import {Component, Input, OnInit} from '@angular/core';
 import {ClockService} from "../../services/clock.service";
-import {InstrumentLine} from "../../models/instrument-line";
+import {Track} from "../../models/track";
 import {Step} from "../../models/step";
 
 
@@ -11,19 +11,14 @@ import {Step} from "../../models/step";
 })
 export class SequencerComponent implements OnInit {
 
-  @Input() instruments: InstrumentLine[] = [];
+  @Input() tracks: Track[] = [];
   @Input() velocity = 1;
 
   activeStep$ = this.sequencer.currentStep$;
-
-  lineLength = [].constructor(10);
-
   numberSteps = new Array(32).fill(1);
 
   clickStepTarget: any;
   adding = false;
-
-  // show or hide numberSteps selector
 
   constructor(private sequencer: ClockService) { }
 
@@ -32,7 +27,6 @@ export class SequencerComponent implements OnInit {
 
   clickStep(event: MouseEvent, step: Step){
     this.clickStepTarget = (event.target as HTMLElement).parentElement
-
     if(!step.on || step.velocity == this.velocity){
       step.on = !step.on;
     }
@@ -53,8 +47,7 @@ export class SequencerComponent implements OnInit {
     this.clickStepTarget = null;
   }
 
-  changeInstrumentLength(instrument: InstrumentLine, length: string){
-    console.log(instrument, length);
+  changeInstrumentLength(instrument: Track, length: string){
     instrument.changeLength(Number(length));
   }
 

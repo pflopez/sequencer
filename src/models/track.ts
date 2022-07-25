@@ -1,7 +1,7 @@
 import {map, Observable} from "rxjs";
 import {Step} from "./step";
 
-export class InstrumentLine {
+export class Track {
   name: string = ''
   sample: string = '';
   volume: number = 1;

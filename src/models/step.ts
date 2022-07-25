@@ -17,7 +17,7 @@ export class Step {
 
   play(){
     if(this.on){
-     console.log('play');
+     // play
     }
   }
 }
