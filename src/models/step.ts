@@ -1,9 +1,18 @@
 export class Step {
   on = false;
+  velocity = 1;
   length = 1;
 
-  constructor(on: boolean) {
-    this.on = on;
+  constructor(velocity: number) {
+    this.on = velocity > 0 ;
+    this.velocity = velocity;
+  }
+
+  get velocityText(){
+    if(this.on){
+      return 'vel-'+ this.velocity;
+    }
+    return '';
   }
 
   play(){

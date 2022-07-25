@@ -3,12 +3,21 @@
 :root{
   --step-color: gray;
   --step-color--active: lightcoral;
-  --step-color--on : red;
+
+
+  --step-color--vel-1: #FF0000;
+  --step-color--vel-2: #FFAA00;
+  --step-color--vel-3: #FFDDAA;
+
   --step-size: 30px;
   --main-bg-color: white;
   --font-color: black;
 
   --sequencer-bg: #d0d0d0;
+  --app-bg: #c0c0c0;
+  --instrument-name-color: #505050;
+  --button-bg-color: #d0d0d0;
+  --button-font-color: #121231;
 }
 
 /* Set core body defaults */
@@ -22,4 +31,10 @@ body {
   color: var(--font-color);
   font-family: sans-serif;
   display: flex;
+  align-items: flex-start;
+  justify-content: center;
+}
+
+app-root {
+  margin-top: 20px;
 }

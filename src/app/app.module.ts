@@ -10,7 +10,7 @@ import { ControlsComponent } from './controls/controls.component';
   declarations: [
     AppComponent,
     SequencerComponent,
-    ControlsComponent
+    ControlsComponent,
   ],
   imports: [
     BrowserModule,

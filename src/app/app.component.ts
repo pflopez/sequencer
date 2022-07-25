@@ -12,10 +12,10 @@ export class AppComponent {
   title = 'sequencer';
 
   instruments = [
-    new InstrumentLine('kick', [1, 0, 0, 0], this.clockService.currentStep$, 24),
+    new InstrumentLine('kick', [1, 0, 0, 0], this.clockService.currentStep$, 16),
     new InstrumentLine('snare', [0, 0, 1, 0], this.clockService.currentStep$, 8),
-    new InstrumentLine('hit-hat', [1, 0, 1, 0], this.clockService.currentStep$, 10),
-    new InstrumentLine('ride', [1, 0, 0, 0, 1, 0, 1, 0], this.clockService.currentStep$),
+    new InstrumentLine('hit-hat', [2, 0, 1, 0], this.clockService.currentStep$, 10),
+    new InstrumentLine('ride', [3, 0, 0, 0, 1, 0, 1, 0], this.clockService.currentStep$),
   ]
 
 
