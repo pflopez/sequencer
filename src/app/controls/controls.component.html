@@ -10,8 +10,10 @@
   >{{ resolutions.values[i]}}</option>
 </select>
 <label for="velocity">Velocity:</label>
+
+
 <select id="velocity" [value]="1" #velocity (change)="changeVelocity(velocity.value)">
-  <option value="1">High</option>
-  <option value="2">Med</option>
-  <option value="3">Low</option>
+  <option *ngFor="let velocity of velocities.keys; let i = index"
+          [value]="velocity"
+  >{{ velocities.values[i]}}</option>
 </select>

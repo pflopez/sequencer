@@ -46,27 +46,23 @@ export class Track {
       this.steps = this.steps.slice(0, length);
       return;
     }
-    // adding steps
-    const newSteps = [];
-    let backupStep;
-    for (let i = 0; i < length; i++) {
-      backupStep = this.steps[i] || this.backupSteps[i];
-      newSteps.push(backupStep || new Step(0));
-    }
-    this.steps = newSteps;
+    this.steps = this.getSteps(length);
   }
 
   // save a backup, using the new one plus the backup, where not provided.
   private saveBackupSteps() {
-    const backupSteps = [];
-    let backupStep;
     const newLength = this.steps.length > this.backupSteps.length ? this.steps.length : this.backupSteps.length;
-    for (let i = 0; i < newLength; i++) {
+    this.backupSteps = this.getSteps(newLength)
+  }
+
+  private getSteps(length: number){
+    const steps = [];
+    let backupStep;
+    for (let i = 0; i < length; i++) {
       // I either have it on the current steps, or on the backup
       backupStep = this.steps[i] || this.backupSteps[i];
-      backupSteps.push(backupStep || new Step(0));
+      steps.push(backupStep || new Step(0));
     }
-    this.backupSteps = backupSteps;
-    console.log(this.backupSteps);
+    return steps;
   }
 }

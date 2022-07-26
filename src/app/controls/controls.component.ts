@@ -1,6 +1,10 @@
 import {Component, EventEmitter, OnInit, Output} from '@angular/core';
 import {ClockService} from "../../services/clock.service";
-import {SequencerResolution, SequencerResolutions} from "../../models/sequencer";
+import {
+  SequencerResolution,
+  SequencerResolutions,
+  SequencerVelocities,
+} from "../../models/sequencer";
 
 @Component({
   selector: 'app-controls',
@@ -17,12 +21,18 @@ export class ControlsComponent implements OnInit {
     values: Object.values(SequencerResolutions)
   };
 
+  velocities = {
+    keys: Object.keys(SequencerVelocities),
+    values: Object.values(SequencerVelocities)
+  }
+
   @Output() updateVelocity = new EventEmitter<number>();
 
   constructor(private clockService: ClockService) {
   }
 
   ngOnInit(): void {
+
   }
 
   play() {
@@ -43,5 +53,6 @@ export class ControlsComponent implements OnInit {
 
   changeVelocity(velocity: string) {
     this.updateVelocity.emit(Number(velocity));
+
   }
 }
