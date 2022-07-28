@@ -1,5 +1,5 @@
-<div *ngFor="let instrument of tracks" class="instrument-line">
-  <div class="instrument-name">{{instrument.name}}</div>
+<div *ngFor="let instrument of tracks" class="track">
+  <div class="track-name">{{instrument.name}}</div>
   <button *ngFor="let step of instrument.steps; index as i"
           class="step"
           (mousedown)="clickStep($event, step)"
