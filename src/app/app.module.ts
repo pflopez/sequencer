@@ -5,12 +5,14 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { SequencerComponent } from './sequencer/sequencer.component';
 import { ControlsComponent } from './controls/controls.component';
+import { RepeaterPipe } from './pipes/repeater.pipe';
 
 @NgModule({
   declarations: [
     AppComponent,
     SequencerComponent,
     ControlsComponent,
+    RepeaterPipe,
   ],
   imports: [
     BrowserModule,

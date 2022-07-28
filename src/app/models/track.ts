@@ -1,5 +1,6 @@
 import {map, Observable} from "rxjs";
 import {Step} from "./step";
+import {getActiveStep} from "../services/music.utility";
 
 export class Track {
   name: string = ''
@@ -20,16 +21,7 @@ export class Track {
     // subscribe and set active step, based on the sequencer current step number
     // starting at 1, 0 is off.
     this.activeStep$ = currentStep$.pipe(
-      map(stepNumber => {
-        const mod = stepNumber % this.steps.length;
-        if (stepNumber === 0) {
-          return 0;
-        }
-        if (mod === 0) {
-          return this.steps.length;
-        }
-        return mod;
-      }),
+      map(stepNumber => getActiveStep(stepNumber, this.steps.length)),
     );
 
     this.activeStep$.subscribe(step => {
@@ -55,7 +47,7 @@ export class Track {
     this.backupSteps = this.getSteps(newLength)
   }
 
-  private getSteps(length: number){
+  private getSteps(length: number) {
     const steps = [];
     let backupStep;
     for (let i = 0; i < length; i++) {

@@ -1,6 +1,6 @@
 import {Component} from '@angular/core';
-import {ClockService} from "../services/clock.service";
-import {Track} from "../models/track";
+import {ClockService} from "./services/clock.service";
+import {Track} from "./models/track";
 
 
 @Component({

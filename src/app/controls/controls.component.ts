@@ -1,10 +1,10 @@
 import {Component, EventEmitter, OnInit, Output} from '@angular/core';
-import {ClockService} from "../../services/clock.service";
+import {ClockService} from "../services/clock.service";
 import {
   SequencerResolution,
   SequencerResolutions,
   SequencerVelocities,
-} from "../../models/sequencer";
+} from "../models/sequencer";
 
 @Component({
   selector: 'app-controls',

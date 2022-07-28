@@ -9,8 +9,13 @@ Sequencer library and component
 ## How to use
 Add your `<sequencer>` element and provide configuration
 
-### Options
+### TODO Options
 - InstrumentLanes - rename to tracks
+- Show or hide step indicator on sequencer
+- Show or hide step indicator on step
+- 
+
+
 
 ## Development server
 

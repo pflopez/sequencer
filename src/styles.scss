@@ -3,20 +3,23 @@
 :root{
   // main ?
   --main-bg-color: white;
-  --font-color: black;
+  --font-color: white;
 
   // sequencer
-  --sequencer-bg: #d0d0d0;
+  --sequencer-bg: #252525;
   --track-name-width: 100px;
-  --app-bg: #c0c0c0;
+  --app-bg: #252525;
   --instrument-name-color: #505050;
-  --button-bg-color: #d0d0d0;
-  --button-font-color: #121231;
+  --button-bg-color: #303030;
+  --button-font-color: #d0d0d0;
+  --input-color: #181819;
+  --input-font-color: #d0d0d0;
 
   // steps
-  --step-color: gray;
-  --step-color--active: lightcoral;
-  --step-color--vel-1: #FF0000;
+
+  --step-color: #333333;
+  --step-color--active: #ff6767;
+  --step-color--vel-1: #b34b4b;
   --step-color--vel-2: #FFAA00;
   --step-color--vel-3: #FFDDAA;
 

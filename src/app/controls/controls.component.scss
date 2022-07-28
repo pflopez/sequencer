@@ -15,6 +15,7 @@ button {
   cursor: pointer;
   height: var(--step-size);
   border-radius: 4px;
+
 }
 
 
@@ -23,6 +24,8 @@ button {
   border-radius: 4px;
   text-align: center;
   height: var(--step-size);
+  background-color: var(--input-color);
+  color: var(--input-font-color);
 }
 .bpm{
   width: 40px;
