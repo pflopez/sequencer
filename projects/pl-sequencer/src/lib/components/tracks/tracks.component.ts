@@ -1,17 +1,16 @@
 import {Component, Input, OnInit} from '@angular/core';
-import {ClockService} from "../services/clock.service";
-import {Track} from "../models/track";
-import {Step} from "../models/step";
 import {map} from "rxjs";
-import {getActiveStep} from "../services/music.utility";
-
+import {getActiveStep} from "../../utils/music.utility";
+import {Track} from "../../models/track";
+import {ClockService} from "../../services/clock.service";
+import {Step} from "../../models/step";
 
 @Component({
-  selector: 'app-sequencer',
-  templateUrl: './sequencer.component.html',
-  styleUrls: ['./sequencer.component.scss']
+  selector: 'pl-tracks',
+  templateUrl: './tracks.component.html',
+  styleUrls: ['./tracks.component.scss']
 })
-export class SequencerComponent implements OnInit {
+export class TracksComponent implements OnInit {
 
   @Input() tracks: Track[] = [];
   @Input() velocity = 1;
@@ -73,6 +72,5 @@ export class SequencerComponent implements OnInit {
       }).steps.length;
     }
   }
-
 
 }

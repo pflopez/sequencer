@@ -1,15 +1,15 @@
 <div *ngFor="let instrument of tracks" class="track">
   <div class="track-name">{{instrument.name}}</div>
   <div *ngFor="let step of instrument.steps; index as i"
-          class="step fl"
-          (mousedown)="clickStep($event, step)"
-          (mouseenter)="hoverStep($event,step)"
-          (mouseup)="endClick()"
-          [class]="step.velocityText"
-          [ngClass]="{ active: (instrument.activeStep$ | async)  === i + 1, on: (step.on)}"></div>
+       class="step fl"
+       (mousedown)="clickStep($event, step)"
+       (mouseenter)="hoverStep($event,step)"
+       (mouseup)="endClick()"
+       [class]="step.velocityText"
+       [ngClass]="{ active: (instrument.activeStep$ | async)  === i + 1, on: (step.on)}"></div>
   <select
-          #stepsLength
-          (change)="changeInstrumentLength(instrument,stepsLength.value)">
+    #stepsLength
+    (change)="changeInstrumentLength(instrument,stepsLength.value)">
     <option *ngFor="let n of numberSteps; let i= index" [value]="i + 1"
             [selected]="instrument.steps.length === i + 1">{{i + 1}}</option>
   </select>

@@ -16,6 +16,11 @@
     "experimentalDecorators": true,
     "moduleResolution": "node",
     "importHelpers": true,
+    "paths": {
+      "pl-sequencer": [
+        "dist/pl-sequencer"
+      ]
+    },
     "target": "es2020",
     "module": "es2020",
     "lib": [

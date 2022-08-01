@@ -3,20 +3,17 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { SequencerComponent } from './sequencer/sequencer.component';
-import { ControlsComponent } from './controls/controls.component';
-import { RepeaterPipe } from './pipes/repeater.pipe';
+import {SequencerModule} from "pl-sequencer";
+
 
 @NgModule({
   declarations: [
     AppComponent,
-    SequencerComponent,
-    ControlsComponent,
-    RepeaterPipe,
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    SequencerModule
   ],
   providers: [],
   bootstrap: [AppComponent]

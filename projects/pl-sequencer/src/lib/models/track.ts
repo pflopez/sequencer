@@ -1,6 +1,6 @@
 import {map, Observable} from "rxjs";
 import {Step} from "./step";
-import {getActiveStep} from "../services/music.utility";
+import {getActiveStep} from "../utils/music.utility";
 
 export class Track {
   name: string = ''

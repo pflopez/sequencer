@@ -1,13 +1,13 @@
 import { TestBed } from '@angular/core/testing';
 
-import { PlayerService } from './player.service';
+import { PlSequencerService } from './pl-sequencer.service';
 
-describe('PlayerService', () => {
-  let service: PlayerService;
+describe('PlSequencerService', () => {
+  let service: PlSequencerService;
 
   beforeEach(() => {
     TestBed.configureTestingModule({});
-    service = TestBed.inject(PlayerService);
+    service = TestBed.inject(PlSequencerService);
   });
 
   it('should be created', () => {

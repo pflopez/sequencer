@@ -1,13 +1,9 @@
 import {Component, EventEmitter, OnInit, Output} from '@angular/core';
-import {ClockService} from "../services/clock.service";
-import {
-  SequencerResolution,
-  SequencerResolutions,
-  SequencerVelocities,
-} from "../models/sequencer";
+import {SequencerResolution, SequencerResolutions, SequencerVelocities} from "../../models/sequencer";
+import {ClockService} from "../../services/clock.service";
 
 @Component({
-  selector: 'app-controls',
+  selector: 'pl-controls',
   templateUrl: './controls.component.html',
   styleUrls: ['./controls.component.scss']
 })

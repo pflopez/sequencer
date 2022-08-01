@@ -1,8 +1,7 @@
 import {Injectable} from '@angular/core';
 import {BehaviorSubject, distinctUntilChanged, filter, switchMap, timer} from "rxjs";
-import {intervalFromBpm} from "./music.utility";
+import {intervalFromBpm} from "../utils/music.utility";
 import {SequencerResolution} from "../models/sequencer";
-
 
 
 @Injectable({
@@ -27,7 +26,6 @@ export class ClockService {
   private runner = this.getRunner();
 
 
-
   constructor() {
 
   }
@@ -50,16 +48,16 @@ export class ClockService {
   updateBpm(bpm: number) {
     this._bpm = bpm;
     this.bpm.next(this._bpm);
-    if(this._playing){
+    if (this._playing) {
       this.runner.unsubscribe();
       this.run();
     }
   }
 
-  updateSubdivision(division: SequencerResolution){
+  updateSubdivision(division: SequencerResolution) {
     this._resolution = division;
     this.resolution.next(this._resolution);
-    if(this._playing){
+    if (this._playing) {
       this.stop();
       this.run();
     }
