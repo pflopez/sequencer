@@ -1,7 +1,88 @@
+@mixin dark() {
+  --font-color: white;
+
+  // sequencer
+  --sequencer-bg: #252525;
+  --app-bg: #252525;
+  --instrument-name-color: #505050;
+  --button-bg-color: #303030;
+  --button-font-color: #d0d0d0;
+  --input-color: #181819;
+  --input-font-color: #d0d0d0;
+  --tracks-border-color: #d0d0d0;
+  --sequencer-border-color: #d0d0d0;
+
+  // steps
+
+  --step-color: #333333;
+  --step-color--active: #ff6767;
+  --step-color-hue: 43;
+  --step-color--vel-1: hwb(var(--step-color-hue) 20% 0%);
+  --step-color--vel-2: hwb(var(--step-color-hue) 10% 40%);
+  --step-color--vel-3: hwb(var(--step-color-hue) 20% 70%);
+}
+
+@mixin light() {
+  --font-color: #252525;
+  // sequencer
+  --sequencer-bg: #fff;
+  --app-bg: #f8f8f8;
+  --instrument-name-color: #505050;
+  --button-bg-color: #f0f0f0;
+  --button-font-color: #252525;
+  --input-color: #f0f0f0;
+  --input-font-color: #252525;
+  --tracks-border-color: transparent;
+  --sequencer-border-color: transparent;
+
+  // steps
+
+  --step-color: #d0d0d0;
+  --step-color--active: #fff6a1;
+  --step-color-hue: 43;
+  --step-color--vel-1: hwb(var(--step-color-hue) 20% 0%);
+  --step-color--vel-2: hwb(var(--step-color-hue) 40% 10%);
+  --step-color--vel-3: hwb(var(--step-color-hue) 70% 10%);
+}
+
 :host {
+  --track-name-width: 100px;
+  --step-size: 30px;
+  --step-border-radius: 5px;
+  --step-spacing: 6px;
+  --step-group-margin: 10px;
+  --border-radius : 8px;
+
+
   background: var(--app-bg);
   padding: 20px;
   display: flex;
   flex-direction: column;
   gap: 20px;
+  line-height: 1.5;
+  color: var(--font-color);
+  font-family: sans-serif;
+  font-size: var(--font-size);
+  border: 1px solid var(--sequencer-border-color);
+  border-radius: var(--border-radius);
+
+  @media (prefers-color-scheme: dark) {
+
+    @include dark;
+
+    &.inverted {
+      @include light;
+    }
+  }
+
+  @media (prefers-color-scheme: light) {
+
+    @include light;
+
+    &.inverted {
+      @include dark;
+    }
+  }
 }
+
+

@@ -10,6 +10,7 @@ import {ClockService} from "../../services/clock.service";
 export class ControlsComponent implements OnInit {
 
   bpm$ = this.clockService.bpm$;
+  playing$ = this.clockService.playing$;
   resolution$ = this.clockService.resolution$;
 
   resolutions = {
@@ -31,12 +32,8 @@ export class ControlsComponent implements OnInit {
 
   }
 
-  play() {
-    this.clockService.run();
-  }
-
-  stop() {
-    this.clockService.stop();
+  toggle(){
+    this.clockService.toggleRun();
   }
 
   changeBpm(bpm: string) {

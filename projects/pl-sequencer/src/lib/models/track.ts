@@ -11,13 +11,20 @@ export class Track {
   activeStep$: Observable<number> = new Observable<number>();
 
 
-  constructor(name: string, pattern: number[], currentStep$: Observable<number>, steps: number = 16) {
+  constructor(name: string, pattern: number[], steps: number = 16) {
     this.name = name;
     // create steps
     for (let i = 0; i < steps; i++) {
       const val = pattern[i % pattern.length];
       this.steps.push(new Step(val));
     }
+  }
+
+  /**
+   * Todo check if Im not leaving any dead subscribers
+   * @param currentStep$
+   */
+  subscribeToStep(currentStep$: Observable<number>){
     // subscribe and set active step, based on the sequencer current step number
     // starting at 1, 0 is off.
     this.activeStep$ = currentStep$.pipe(
@@ -30,6 +37,7 @@ export class Track {
       }
     });
   }
+
 
   changeLength(length: number) {
     // if new length is shorter than current length, just trim

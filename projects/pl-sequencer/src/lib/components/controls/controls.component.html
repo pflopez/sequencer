@@ -1,17 +1,19 @@
-<button (click)="play()">Run</button>
-<button (click)="stop()">Stop</button>
-<label for="bpm">Bpm:</label><input #bpm name="bpm" id="bpm" class="bpm" [value]="bpm$ |async"
-                                    (keyup)="changeBpm(bpm.value)">
+<button (click)="toggle()" class="space-right">{{ (playing$ | async) ? 'stop' : 'play'}}</button>
+<label for="bpm">Bpm:</label>
+<input #bpm name="bpm"
+       id="bpm"
+       class="bpm space-right"
+       [value]="bpm$ |async"
+       (keyup)="changeBpm(bpm.value)">
 <label for="duration">Resolution:</label>
-<select id="duration" #duration (change)="changeDuration(duration.value)">
+<select id="duration" #duration (change)="changeDuration(duration.value)" class="space-right">
   <option *ngFor="let resolution of resolutions.keys; let i = index"
           [value]="resolution"
           [selected]="(resolution$ | async)?.toString() === resolution"
   >{{ resolutions.values[i]}}</option>
 </select>
+
 <label for="velocity">Velocity:</label>
-
-
 <select id="velocity" [value]="1" #velocity (change)="changeVelocity(velocity.value)">
   <option *ngFor="let velocity of velocities.keys; let i = index"
           [value]="velocity"

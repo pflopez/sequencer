@@ -1,32 +1,7 @@
 /* You can add global styles to this file, and also import other style files */
 
 :root{
-  // main ?
-  --main-bg-color: white;
-  --font-color: white;
 
-  // sequencer
-  --sequencer-bg: #252525;
-  --track-name-width: 100px;
-  --app-bg: #252525;
-  --instrument-name-color: #505050;
-  --button-bg-color: #303030;
-  --button-font-color: #d0d0d0;
-  --input-color: #181819;
-  --input-font-color: #d0d0d0;
-
-  // steps
-
-  --step-color: #333333;
-  --step-color--active: #ff6767;
-  --step-color--vel-1: #b34b4b;
-  --step-color--vel-2: #FFAA00;
-  --step-color--vel-3: #FFDDAA;
-
-  --step-size: 30px;
-  --step-border-radius: 5px;
-  --step-spacing: 6px;
-  --step-group-margin: 10px;
 
 }
 
@@ -36,10 +11,7 @@ body {
   scroll-behavior: smooth;
   text-rendering: optimizeSpeed;
   line-height: 1.5;
-  font-size: var(--font-size);
   background-color: var(--main-bg-color);
-  color: var(--font-color);
-  font-family: sans-serif;
   display: flex;
   align-items: flex-start;
   justify-content: center;

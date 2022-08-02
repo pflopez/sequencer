@@ -14,6 +14,9 @@ export class TracksComponent implements OnInit {
 
   @Input() tracks: Track[] = [];
   @Input() velocity = 1;
+  @Input() showTrackName = true;
+  @Input() showTrackLength = true;
+  @Input() showActiveStepBar = true;
 
   activeStep$ = this.sequencer.currentStep$;
   numberSteps = new Array(32).fill(1);

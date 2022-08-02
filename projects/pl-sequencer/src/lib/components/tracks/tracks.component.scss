@@ -1,6 +1,7 @@
 :host {
   display: flex;
-  border: 1px solid black;
+  border: 1px solid var(--tracks-border-color);
+  border-radius: calc(var(--border-radius) / 2 );
   flex-direction: column;
   margin: 0;
   background-color: var(--sequencer-bg);
@@ -15,10 +16,22 @@
 .track-name {
   width: var(--track-name-width);
   color: var(--instrument-name-color);
+  padding: 5px;
   text-transform: uppercase;
   font-size: 11px;
   font-weight: bold;
   text-align: right;
+  cursor: pointer;
+
+  &:focus-visible {
+    outline: none;
+    background-color: var(--input-color);
+    color: var(--input-font-color);
+  }
+}
+
+.track-steps {
+  display: flex;
 }
 
 .step {
@@ -44,7 +57,7 @@
     background-color: var(--step-color--vel-3);
   }
   // spaces on groups (4/4)
-  &:nth-child(4n + 2) {
+  &:nth-child(4n + 1) {
     margin-left: var(--step-group-margin);
   }
   // adds space between the last step and the select
@@ -91,13 +104,16 @@ select {
 .active-step-indicator{
   display: flex;
   align-items: center;
-  margin-left: var(--track-name-width);
+
+  &.padded {
+    margin-left: var(--track-name-width);
+  }
 }
 
 .indicator {
   width: var(--step-size);
   height: 3px;
-  background-color: #4a4a4a;
+  background-color: var(--step-color);
   display: block;
   position: relative;
   top: 8px;

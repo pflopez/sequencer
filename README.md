@@ -10,10 +10,10 @@ Sequencer library and component
 Add your `<sequencer>` element and provide configuration
 
 ### TODO Options
-- InstrumentLanes - rename to tracks
-- Show or hide step indicator on sequencer
-- Show or hide step indicator on step
-- 
+- Rename tracks [ok ish]
+- Show or hide step indicator on sequencer [ok]
+- Show or hide step indicator on step  [ok]
+- Extra options, options available for track length
 
 
 

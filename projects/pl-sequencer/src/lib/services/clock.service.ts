@@ -30,6 +30,10 @@ export class ClockService {
 
   }
 
+  toggleRun(){
+    this._playing? this.stop() : this.run()
+  }
+
   stop() {
     this._playing = false;
     this.playing.next(this._playing);
