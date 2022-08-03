@@ -14,12 +14,6 @@ export class Step {
     }
     return '';
   }
-
-  play(){
-    if(this.on){
-     // play
-    }
-  }
 }
 
 

@@ -15,6 +15,11 @@ Add your `<sequencer>` element and provide configuration
 - Show or hide step indicator on step  [ok]
 - Extra options, options available for track length
 
+## Fix
+- Dependencies, howler added on both app and library dependencies?
+- Stop needs to stop everything
+- Clearing the step needs to turn step off
+- Add the player as separate dependenc
 
 
 ## Development server

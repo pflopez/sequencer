@@ -10,9 +10,9 @@ import {Track} from "pl-sequencer";
 export class AppComponent {
 
   tracks = [
-    new Track('kick', [1, 0, 0, 0], 16),
-    new Track('snare', [0, 0, 1, 0], 8),
-    new Track('hit-hat', [2, 0, 1, 0], 10),
-    new Track('ride', [3, 0, 0, 0, 1, 0, 1, 0]),
+    new Track('kick', 'assets/sounds/1/kick.wav', [1, 0, 0, 0], 16),
+    new Track('snare','assets/sounds/1/shot_mud.wav',  [0, 0, 1, 0], 8),
+    new Track('hit-hat', 'assets/sounds/1/hat.wav',[2, 0, 1, 0], 10),
+    new Track('ride', 'assets/sounds/1/lev.wav', [3, 0, 0, 0, 1, 0, 1, 0]),
   ]
 }
