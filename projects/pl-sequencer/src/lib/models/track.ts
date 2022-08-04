@@ -2,6 +2,7 @@ import {map, Observable} from "rxjs";
 import {Step} from "./step";
 import {getActiveStep} from "../utils/music.utility";
 import {Player} from "./player";
+import {TrackData} from "./interfaces";
 
 export class Track {
   name: string = ''
@@ -13,7 +14,8 @@ export class Track {
   player = new Player();
 
 
-  constructor(name: string, sample: string, pattern: number[], steps: number = 16) {
+  constructor(trackData: TrackData, currentStep$: Observable<number> ) {
+    const {name, sample, pattern, steps} = trackData;
     this.name = name;
     // create steps
     for (let i = 0; i < steps; i++) {
@@ -22,13 +24,14 @@ export class Track {
     }
     this.sample = sample;
     this.player = new Player(this.sample);
+    this.subscribeToStep(currentStep$);
   }
 
   /**
    * Todo check if Im not leaving any dead subscribers
    * @param currentStep$ 0 - off, 1 first step
    */
-  subscribeToStep(currentStep$: Observable<number>){
+  private subscribeToStep(currentStep$: Observable<number>){
     // subscribe and set active step, based on the sequencer current step number
     // starting at 1, 0 is off.
     this.activeStep$ = currentStep$.pipe(

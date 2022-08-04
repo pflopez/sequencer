@@ -7,7 +7,7 @@ import {ClockService} from "../../services/clock.service";
   templateUrl: './sequencer.component.html',
   styleUrls: ['./sequencer.component.scss']
 })
-export class SequencerComponent implements OnInit {
+export class SequencerComponent {
   @Input() tracks: Track[] = [];
   @Input() showTrackName = true;
   @Input() showTrackLength = true;
@@ -17,14 +17,10 @@ export class SequencerComponent implements OnInit {
   velocity = 1;
 
 
-  constructor(private clockService: ClockService) {
+  constructor() {
   }
 
   updateVelocity(velocity: number) {
     this.velocity = velocity;
-  }
-
-  ngOnInit(): void {
-    this.tracks.forEach(t => t.subscribeToStep(this.clockService.currentStep$))
   }
 }

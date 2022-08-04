@@ -1,5 +1,5 @@
 import {Component} from '@angular/core';
-import {Track} from "pl-sequencer";
+import {PlSequencerService, createTrackData} from "pl-sequencer";
 
 
 @Component({
@@ -9,10 +9,15 @@ import {Track} from "pl-sequencer";
 })
 export class AppComponent {
 
-  tracks = [
-    new Track('kick', 'assets/sounds/1/kick.wav', [1, 0, 0, 0], 16),
-    new Track('snare','assets/sounds/1/shot_mud.wav',  [0, 0, 1, 0], 8),
-    new Track('hit-hat', 'assets/sounds/1/hat.wav',[2, 0, 1, 0], 10),
-    new Track('ride', 'assets/sounds/1/lev.wav', [3, 0, 0, 0, 1, 0, 1, 0]),
-  ]
+  tracks = this.sequencer.tracks;
+
+  constructor(private sequencer: PlSequencerService) {
+
+    this.tracks = this.sequencer.createTracks([
+      createTrackData('kick', 'assets/sounds/1/kick.wav', [1, 0, 0, 0], 16),
+      createTrackData('snare', 'assets/sounds/1/shot_mud.wav', [0, 0, 1, 0], 8),
+      createTrackData('hit-hat', 'assets/sounds/1/hat.wav', [2, 0, 1, 0], 10),
+      createTrackData('ride', 'assets/sounds/1/lev.wav', [3, 0, 0, 0, 1, 0, 1, 0]),
+    ])
+  }
 }
