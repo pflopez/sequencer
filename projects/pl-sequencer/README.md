@@ -1,24 +1,47 @@
 # PlSequencer
 
+Sequencer library and component
+- Bpm, resolution, 3 velocity settings per step
+- Each track can have 1 to 32 steps, individually.
+- Themeable UI with dark mode.
+
+## How to use
+Add your `<sequencer>` element and provide an array of tracks.
+```html
+<pl-sequencer [tracks]="tracks"></pl-sequencer>
+```
+To create the tracks for the sequencer, use `PlSequencerService.createTracks()` method and provide `TrackData` objects.
+```typescript
+this.tracks = this.plSequencerService.createTracks([
+  {
+    name: 'kick', 
+    sample : 'assets/sounds/1/kick.wav' , 
+    pattern: [1, 0, 0, 0] , 
+    steps: 16
+  },
+  //...
+]);
+```
+
+You can use the `createTrackData` function to simplify the process 
+```typescript
+this.tracks = this.plSequencerService.createTracks([
+      createTrackData('kick', 'assets/sounds/1/kick.wav', [1, 0, 0, 0], 16),
+      createTrackData('snare', 'assets/sounds/1/shot_mud.wav', [0, 0, 1, 0], 8),
+      createTrackData('hit-hat', 'assets/sounds/1/hat.wav', [2, 0, 1, 0], 10),
+      createTrackData('ride', 'assets/sounds/1/lev.wav', [3, 0, 0, 0, 1, 0, 1, 0]),
+    ])
+```
+
+Additionally, you can provide additional configuration to show or hide the track name, the track length dropdown, and the active step indicator on the step.
+
+```html
+<pl-sequencer [tracks]="tracks"
+              [showTrackName]="true"
+              [showTrackLength]="true"
+              [showActiveStepBar]="true"
+></pl-sequencer>
+```
+
+---------------
 This library was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.0.0.
-
-## Code scaffolding
-
-Run `ng generate component component-name --project pl-sequencer` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module --project pl-sequencer`.
-> Note: Don't forget to add `--project pl-sequencer` or else it will be added to the default project in your `angular.json` file. 
-
-## Build
-
-Run `ng build pl-sequencer` to build the project. The build artifacts will be stored in the `dist/` directory.
-
-## Publishing
-
-After building your library with `ng build pl-sequencer`, go to the dist folder `cd dist/pl-sequencer` and run `npm publish`.
-
-## Running unit tests
-
-Run `ng test pl-sequencer` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.

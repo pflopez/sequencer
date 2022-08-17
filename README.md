@@ -2,12 +2,7 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.0.3.
 
-Sequencer library and component
- - Bpm, resolution, 3 velocity settings per step
- - Each track can have 1 to 32 steps, individually.
 
-## How to use
-Add your `<sequencer>` element and provide configuration
 
 ### TODO Options
 - Rename tracks [ok ish]

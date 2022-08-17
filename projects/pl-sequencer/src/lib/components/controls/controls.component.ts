@@ -1,4 +1,4 @@
-import {Component, EventEmitter, OnInit, Output} from '@angular/core';
+import {Component, EventEmitter, Output} from '@angular/core';
 import {SequencerResolution, SequencerResolutions, SequencerVelocities} from "../../models/sequencer";
 import {ClockService} from "../../services/clock.service";
 
@@ -7,7 +7,7 @@ import {ClockService} from "../../services/clock.service";
   templateUrl: './controls.component.html',
   styleUrls: ['./controls.component.scss']
 })
-export class ControlsComponent implements OnInit {
+export class ControlsComponent{
 
   bpm$ = this.clockService.bpm$;
   playing$ = this.clockService.playing$;
@@ -26,10 +26,6 @@ export class ControlsComponent implements OnInit {
   @Output() updateVelocity = new EventEmitter<number>();
 
   constructor(private clockService: ClockService) {
-  }
-
-  ngOnInit(): void {
-
   }
 
   toggle(){
