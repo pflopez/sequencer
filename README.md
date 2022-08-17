@@ -15,6 +15,7 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 - Stop needs to stop everything
 - Clearing the step needs to turn step off
 - Add the player as separate dependenc
+- Add renaming track 
 
 
 ## Development server

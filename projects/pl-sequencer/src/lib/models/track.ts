@@ -40,7 +40,7 @@ export class Track {
 
     this.activeStep$.subscribe(step => {
       if (step !== 0 && this.steps[step - 1].on ) {
-        this.player.play(this.steps[step - 1].velocity);
+        this.player.play(this.steps[step - 1].velocity, this.volume);
       }
     });
   }
@@ -71,5 +71,13 @@ export class Track {
       steps.push(backupStep || new Step(0));
     }
     return steps;
+  }
+
+  /**
+   * Change base volume for this track. From 0 to 1.
+   * @param volume
+   */
+  changeVolume(volume: number){
+    this.volume = volume;
   }
 }

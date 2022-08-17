@@ -76,4 +76,8 @@ export class TracksComponent implements OnInit {
     }
   }
 
+  changeVolume(volume: number, track : Track){
+    track.changeVolume(volume);
+  }
+
 }

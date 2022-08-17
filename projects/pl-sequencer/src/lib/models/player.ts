@@ -10,10 +10,11 @@ export class Player {
     }
   }
 
-  play(volume: number) {
+  play(volume: number, trackVolume: number) {
     if (this.track) {
       this.track.stop();
-      this.track.volume(1 / volume)
+      this.track.seek()
+      this.track.volume(trackVolume / volume)
       this.track.play();
     }
   }

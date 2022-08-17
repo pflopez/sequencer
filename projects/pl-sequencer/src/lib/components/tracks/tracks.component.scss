@@ -22,6 +22,7 @@
   font-weight: bold;
   text-align: right;
   cursor: pointer;
+  user-select: none;
 
   &:focus-visible {
     outline: none;
@@ -98,6 +99,7 @@ select {
   margin-left: auto;
   background-color: var(--input-color);
   color: var(--input-font-color);
+  user-select: none;
 }
 
 
@@ -128,4 +130,10 @@ select {
     background-color: var(--step-color--active);
     box-shadow: 0 0 2px 2px var(--step-color--active);;
   }
+}
+
+
+
+pl-knob {
+  margin: var(--step-group-margin);
 }

@@ -1,10 +1,10 @@
-import { NgModule } from '@angular/core';
-import { SequencerComponent } from './components/sequencer/sequencer.component';
+import {NgModule} from '@angular/core';
+import {SequencerComponent} from './components/sequencer/sequencer.component';
 import {RepeaterPipe} from "./pipes/repeater.pipe";
-import { TracksComponent } from './components/tracks/tracks.component';
+import {TracksComponent} from './components/tracks/tracks.component';
 import {CommonModule} from "@angular/common";
 import {ControlsComponent} from "./components/controls/controls.component";
-
+import {KnobComponent} from './components/knob/knob.component';
 
 
 @NgModule({
@@ -12,7 +12,8 @@ import {ControlsComponent} from "./components/controls/controls.component";
     SequencerComponent,
     RepeaterPipe,
     TracksComponent,
-    ControlsComponent
+    ControlsComponent,
+    KnobComponent
   ],
   imports: [
     CommonModule
@@ -21,4 +22,5 @@ import {ControlsComponent} from "./components/controls/controls.component";
     SequencerComponent
   ]
 })
-export class SequencerModule { }
+export class SequencerModule {
+}
