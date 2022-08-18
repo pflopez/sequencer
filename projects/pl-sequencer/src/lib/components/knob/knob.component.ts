@@ -18,6 +18,11 @@ export class KnobComponent implements OnInit {
   @HostBinding('style.transform') get rotationTransform() {
     return `rotate(${this.rotation}deg)`;
   }
+  /** @ignore */
+  @HostBinding('class.listening')
+  get isListening() {
+    return this.listening;
+  }
 
   @HostListener('mousedown', ['$event'])
   handleMouseDown($event: MouseEvent) {

@@ -1,7 +1,8 @@
-<pl-controls (updateVelocity)="updateVelocity($event)"></pl-controls>
+<pl-controls (updateVelocity)="updateVelocity($event)" draggable="false"></pl-controls>
 <pl-tracks [tracks]="tracks"
            [velocity]="velocity"
            [showTrackName]="showTrackName"
            [showTrackLength]="showTrackLength"
            [showActiveStepBar]="showActiveStepBar"
+           draggable="false"
 ></pl-tracks>

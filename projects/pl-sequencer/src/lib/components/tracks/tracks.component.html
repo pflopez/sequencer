@@ -1,5 +1,5 @@
 <div *ngFor="let track of tracks" class="track">
-  <div class="track-name" *ngIf="showTrackName">
+  <div class="track-name" *ngIf="showTrackName" draggable="false">
     {{track.name}}
   </div>
   <div class="track-steps">
@@ -12,14 +12,15 @@
          [ngClass]="{ active: (track.activeStep$ | async)  === i + 1, on: (step.on)}"></div>
   </div>
   <select
+    draggable="false"
     #stepsLength
     *ngIf="showTrackLength"
     (change)="changeInstrumentLength(track,stepsLength.value)">
     <option *ngFor="let n of numberSteps; let i= index" [value]="i + 1"
             [selected]="track.steps.length === i + 1">{{i + 1}}</option>
   </select>
-  <pl-knob [value]="track.volume" (updateValue)="changeVolume($event, track)"></pl-knob>
-  <pl-knob [value]="track.length" (updateValue)="changeLength($event, track)"></pl-knob>
+  <pl-knob [value]="track.volume" (updateValue)="changeVolume($event, track)" title="Track Volume"></pl-knob>
+  <pl-knob [value]="track.length" (updateValue)="changeLength($event, track)" title="Sample Length"></pl-knob>
 </div>
 <div class="active-step-indicator" [ngClass]="{padded: showTrackName}" *ngIf="showActiveStepBar">
   <div *ngFor="let key of maxLength | repeater"

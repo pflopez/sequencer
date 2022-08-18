@@ -17,4 +17,8 @@
     content: '';
     display: block;
   }
+
+  &.listening {
+    box-shadow: 0 0 2px 2px  var(--step-color--vel-1);
+  }
 }
