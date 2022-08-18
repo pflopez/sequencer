@@ -2,4 +2,7 @@
               [showTrackName]="true"
               [showTrackLength]="true"
               [showActiveStepBar]="true"
+              [ngClass]="{inverted : inverted }"
 ></pl-sequencer>
+
+<button (click)="invert()">Invert theme</button>

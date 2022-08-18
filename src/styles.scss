@@ -1,8 +1,7 @@
 /* You can add global styles to this file, and also import other style files */
 
-:root{
-
-
+:root {
+  --main-bg-color: white;
 }
 
 /* Set core body defaults */
@@ -15,8 +14,28 @@ body {
   display: flex;
   align-items: flex-start;
   justify-content: center;
+
+  @media (prefers-color-scheme: dark) {
+
+    --main-bg-color: #171717;
+
+    &.inverted {
+      --main-bg-color: white;
+    }
+  }
+
+  @media (prefers-color-scheme: light) {
+
+    --main-bg-color: white;
+
+    &.inverted {
+      --main-bg-color: #171717;
+    }
+  }
+
 }
 
 app-root {
   margin-top: 20px;
 }
+

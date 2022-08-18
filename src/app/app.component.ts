@@ -1,5 +1,6 @@
-import {Component} from '@angular/core';
+import {Component, Inject, Renderer2} from '@angular/core';
 import {PlSequencerService, createTrackData} from "pl-sequencer";
+import {DOCUMENT} from "@angular/common";
 
 
 @Component({
@@ -10,8 +11,11 @@ import {PlSequencerService, createTrackData} from "pl-sequencer";
 export class AppComponent {
 
   tracks = this.sequencer.tracks;
+  inverted = false;
 
-  constructor(private sequencer: PlSequencerService) {
+  constructor(private sequencer: PlSequencerService,
+              @Inject(DOCUMENT) private document: Document,
+              private renderer: Renderer2) {
 
     this.tracks = this.sequencer.createTracks([
       createTrackData('kick', 'assets/sounds/1/kick.wav', [1, 0, 0, 0], 16),
@@ -20,4 +24,15 @@ export class AppComponent {
       createTrackData('tom', 'assets/sounds/1/odd.wav', [3, 0, 0, 0, 1, 0, 1, 0]),
     ])
   }
+
+  invert(){
+    this.inverted = !this.inverted;
+    if(this.inverted){
+      this.renderer.addClass(this.document.body, 'inverted');
+    }else{
+      this.renderer.removeClass(this.document.body, 'inverted');
+    }
+
+  }
 }
+
