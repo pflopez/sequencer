@@ -19,6 +19,7 @@
             [selected]="track.steps.length === i + 1">{{i + 1}}</option>
   </select>
   <pl-knob [value]="track.volume" (updateValue)="changeVolume($event, track)"></pl-knob>
+  <pl-knob [value]="track.length" (updateValue)="changeLength($event, track)"></pl-knob>
 </div>
 <div class="active-step-indicator" [ngClass]="{padded: showTrackName}" *ngIf="showActiveStepBar">
   <div *ngFor="let key of maxLength | repeater"

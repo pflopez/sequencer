@@ -59,9 +59,9 @@ export class TracksComponent implements OnInit {
   }
 
   changeInstrumentLength(instrument: Track, length: string) {
-    const legthNmb = Number(length);
-    instrument.changeLength(legthNmb)
-    this.maxLength = this.getMaxTrackLength(legthNmb);
+    const lengthNmb = Number(length);
+    instrument.changePatternLength(lengthNmb)
+    this.maxLength = this.getMaxTrackLength(lengthNmb);
   }
 
   private getMaxTrackLength(legthNmb = 0) {
@@ -78,6 +78,10 @@ export class TracksComponent implements OnInit {
 
   changeVolume(volume: number, track : Track){
     track.changeVolume(volume);
+  }
+
+  changeLength(length: number, track: Track){
+    track.changeLength(length);
   }
 
 }

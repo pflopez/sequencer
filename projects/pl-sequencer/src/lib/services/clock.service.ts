@@ -83,6 +83,10 @@ export class ClockService {
     });
   }
 
+  getIntervalInMs(): number{
+    return intervalFromBpm(this._bpm, this._resolution);
+  }
+
 }
 
 

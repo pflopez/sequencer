@@ -15,9 +15,9 @@ export class AppComponent {
 
     this.tracks = this.sequencer.createTracks([
       createTrackData('kick', 'assets/sounds/1/kick.wav', [1, 0, 0, 0], 16),
-      createTrackData('snare', 'assets/sounds/1/shot_mud.wav', [0, 0, 1, 0], 8),
-      createTrackData('hit-hat', 'assets/sounds/1/hat.wav', [2, 0, 1, 0], 10),
-      createTrackData('ride', 'assets/sounds/1/lev.wav', [3, 0, 0, 0, 1, 0, 1, 0]),
+      createTrackData('snare', 'assets/sounds/1/snare.wav', [0, 0, 1, 0], 8),
+      createTrackData('hit-hat', 'assets/sounds/1/lev.wav', [2, 0, 1, 0], 10),
+      createTrackData('tom', 'assets/sounds/1/odd.wav', [3, 0, 0, 0, 1, 0, 1, 0]),
     ])
   }
 }

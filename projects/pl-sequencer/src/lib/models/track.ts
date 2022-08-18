@@ -1,4 +1,4 @@
-import {map, Observable} from "rxjs";
+import {filter, map, Observable, switchMap, timer} from "rxjs";
 import {Step} from "./step";
 import {getActiveStep} from "../utils/music.utility";
 import {Player} from "./player";
@@ -8,6 +8,8 @@ export class Track {
   name: string = ''
   sample: string = '';
   volume: number = 1;
+  duration = 0; // the sample duration
+  length = 1; // 0 nothing, 1 full duration
   steps: Step[] = [];
   backupSteps: Step[] = [];
   activeStep$: Observable<number> = new Observable<number>();
@@ -31,7 +33,8 @@ export class Track {
    * Todo check if Im not leaving any dead subscribers
    * @param currentStep$ 0 - off, 1 first step
    */
-  private subscribeToStep(currentStep$: Observable<number>){
+   private async subscribeToStep(currentStep$: Observable<number>){
+     this.duration = await this.player.getDuration();
     // subscribe and set active step, based on the sequencer current step number
     // starting at 1, 0 is off.
     this.activeStep$ = currentStep$.pipe(
@@ -43,10 +46,21 @@ export class Track {
         this.player.play(this.steps[step - 1].velocity, this.volume);
       }
     });
+    this.activeStep$
+      .pipe(
+        filter(step => step !== 0 && this.steps[step - 1].on),
+        switchMap( step => timer(this.length * this.duration * 1000))
+      )
+      .subscribe(_ => {
+        console.log('duration: ', this.duration);
+        console.log(this.length * this.duration * 1000);
+
+        this.player.stop();
+    });
   }
 
 
-  changeLength(length: number) {
+  changePatternLength(length: number) {
     // if new length is shorter than current length, just trim
     if (length <= this.steps.length) {
       this.saveBackupSteps();
@@ -79,5 +93,9 @@ export class Track {
    */
   changeVolume(volume: number){
     this.volume = volume;
+  }
+
+  changeLength(length: number){
+    this.length = length;
   }
 }

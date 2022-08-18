@@ -4,18 +4,18 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 
 
 
-### TODO Options
-- Rename tracks [ok ish]
-- Show or hide step indicator on sequencer [ok]
-- Show or hide step indicator on step  [ok]
+### TODO
 - Extra options, options available for track length
+- Pre load / loader for assets
+- Export pattern
+- Add renaming track
 
-## Fix
+
+## Fix / improve
+- Show active step on both options , with indicator above or highlight
 - Dependencies, howler added on both app and library dependencies?
-- Stop needs to stop everything
-- Clearing the step needs to turn step off
-- Add the player as separate dependenc
-- Add renaming track 
+- Add the player as separate dependency ->
+  - Interesting to try with other (more capable ) player like tone.js
 
 
 ## Development server
