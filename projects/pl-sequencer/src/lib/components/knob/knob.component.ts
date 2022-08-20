@@ -30,6 +30,7 @@ export class KnobComponent implements OnInit {
     this.listening = true;
     this.initPos = $event.pageY;
     this.initialValue = this.value;
+    $event.preventDefault();
   }
 
   @HostListener('document:mouseup', ['$event'])

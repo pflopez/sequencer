@@ -9,6 +9,7 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 - Pre load / loader for assets
 - Export pattern
 - Add renaming track
+- Add extra parameters (volume, length) on create track
 
 
 ## Fix / improve

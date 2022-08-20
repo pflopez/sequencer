@@ -28,6 +28,7 @@ button {
   height: var(--step-size);
   background-color: var(--input-color);
   color: var(--input-font-color);
+  cursor: pointer;
 }
 .bpm{
   width: 40px;
