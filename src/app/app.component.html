@@ -1,4 +1,4 @@
-<pl-sequencer [tracks]="tracks"
+<pl-sequencer [tracksData]="tracksData"
               [showTrackName]="true"
               [showTrackLength]="true"
               [showActiveStepBar]="true"
@@ -6,3 +6,8 @@
 ></pl-sequencer>
 
 <button (click)="invert()">Invert theme</button>
+
+<div>
+  Or try a sequencer without using the `pl-sequencer` component
+  <button (click)="play()">{{ (simpleSequencer.playing$ | async) ? 'Stop' : 'Play' }}</button>
+</div>

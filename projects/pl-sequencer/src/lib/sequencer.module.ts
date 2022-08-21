@@ -19,7 +19,7 @@ import {KnobComponent} from './components/knob/knob.component';
     CommonModule
   ],
   exports: [
-    SequencerComponent
+    SequencerComponent,
   ]
 })
 export class SequencerModule {

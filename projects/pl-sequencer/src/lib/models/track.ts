@@ -52,9 +52,6 @@ export class Track {
         switchMap( step => timer(this.length * this.duration * 1000))
       )
       .subscribe(_ => {
-        console.log('duration: ', this.duration);
-        console.log(this.length * this.duration * 1000);
-
         this.player.stop();
     });
   }
