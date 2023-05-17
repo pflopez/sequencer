@@ -2,7 +2,8 @@
 
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 14.0.3.
 
-
+### Demo:
+https://pflopez.github.io/sequencer/
 
 ### TODO
 - Extra options, options available for track length
